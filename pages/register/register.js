@@ -1,4 +1,7 @@
 // pages/register/register.js
+var util = require('../../utils/util.js')
+var app = getApp();
+
 Page({
 
   /**
@@ -62,5 +65,22 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  register:function(e){
+    console.log(e);
+    var url = app.globalData.address + '/user/add'
+    var data = e.detail.value;
+    util.HttpPost(url, data, function (res) {
+      console.log(res);
+      if (res.status == 1) {
+        wx.navigateTo({
+          url: '../login/login',
+        });
+      } else {
+        wx.showToast(res.msg);
+      }
+
+    })
   }
 })

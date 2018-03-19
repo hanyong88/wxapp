@@ -1,10 +1,15 @@
 <view class='body'>
-  <view>
-    <input placeholder='请输入手机号' type='text'></input>
-    <input placeholder='请输入密码' password='true'></input>
-    <navigator url='../register/register'>去注册</navigator>
-  </view>
-  <view>
-    <button type='primary'>登录</button>
-  </view>
+  <form bindsubmit='login'>
+    <view>
+      <input placeholder='请输入用户名' name='username'></input>
+      <input placeholder='请输入密码' password='true' name='password' ></input>
+      <view class='nav'>
+        <switch checked='true' type='checkbox' name='remember'>记住我</switch>
+        <navigator url='../register/register'>去注册</navigator>
+      </view>
+    </view>
+    <view>
+      <button type='primary' form-type='submit'>登录</button>
+    </view>
+  </form>
 </view>

@@ -1,4 +1,7 @@
 // pages/login/login.js
+var util = require('../../utils/util.js')
+var app = getApp();
+
 Page({
 
   /**
@@ -62,5 +65,22 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  login:function(e){
+    console.log(e);
+    var url = app.globalData.address + '/user/login'
+    var data = e.detail.value;
+    util.HttpPost(url,data,function(res){
+      console.log(res);
+      if(res.status == 1){
+        wx.navigateTo({
+          url: '../index/index',
+        });
+      }else{
+        wx.showToast(res.msg);
+      }
+
+    })
   }
 })

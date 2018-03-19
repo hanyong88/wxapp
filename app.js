@@ -6,8 +6,10 @@ App({
     //调用登录接口
     wx.login({
       success: function (Res) {
+        console.log(Res);
         wx.getUserInfo({
           success: function (res) {
+            console.log(res)
             wx.setStorageSync("userInfo", res.userInfo);
             let code = Res.code;
             let iv = res.iv;
@@ -46,7 +48,7 @@ App({
 
   globalData: {
      //address: "http://127.0.0.1:8012",
-    address: "https://jianyuejizhang.cn",
-
+    // address: "https://jianyuejizhang.cn",
+    address:"https://www.hanyong.top/mine"
   }
 })
